@@ -221,7 +221,7 @@ class ReactCodeInput extends Component {
   }
 
   render() {
-    const { className, style = {}, inputStyle = {}, inputStyleInvalid = {}, type, autoFocus, pattern, inputMode } = this.props,
+    const { className, style = {}, inputStyle = {}, inputStyleInvalid = {}, type, autoFocus, name, pattern, inputMode } = this.props,
       { disabled, input, isValid, defaultInputStyle } = this.state,
       styles = {
         container: style,
@@ -271,6 +271,7 @@ class ReactCodeInput extends Component {
               data-id={i}
               autoFocus={autoFocus && (i === 0) ? 'autoFocus' : ''}
               value={value}
+              name={`${name}_${i}`}
               key={`input_${i}`}
               type={type}
               min={0}
@@ -302,6 +303,7 @@ ReactCodeInput.defaultProps = {
   fields: 4,
   value: '',
   type: 'text',
+  name: 'codeinput',
   filterKeyCodes: [189, 190],
   filterChars: ['-', '.'],
 };
